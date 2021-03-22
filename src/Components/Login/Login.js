@@ -7,26 +7,28 @@ import { createUserWithEmailAndPassword, handleGithubSignIn, handleGoogleSignIn,
 
 
 const Login = () => {
+
+    
     initializeLoginFramework();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [newUser, setNewUser] = useState(true);
-    const [errorMsg, setError] = useState(loggedInUser.error);
-
     const [user, setUser] = useState({
         isSignedIn: false,
         name: '',
         email: '',
         photo: ''
     });
-
     const history = useHistory();
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
 
+    const [errorMsg, setError] = useState();
+
     const handleBlurField = (event) => {
-        let isFieldValid = true;
         setError('');
+        let isFieldValid = true;
         if (event.target.name === 'email') {
+
             isFieldValid = /\S+@\S+\.\S+/.test(event.target.value);
             if (isFieldValid) {
                 const newUserInfo = { ...user };
@@ -42,7 +44,9 @@ const Login = () => {
 
         const password = document.querySelector('input[name=password]');
         const confirm = document.querySelector('input[name=repeatPassword]');
+        
         if (newUser) {
+
 
             if (isFieldValid && confirm.value === password.value) {
                 confirm.setCustomValidity('');
@@ -50,7 +54,7 @@ const Login = () => {
                 newUserInfo[event.target.name] = event.target.value;
                 setUser(newUserInfo);
             } else {
-                confirm.setCustomValidity('Passwords do not match');
+                confirm.setCustomValidity('Passwords does not match! Double Check!');
             }
         }
         else {
@@ -58,6 +62,7 @@ const Login = () => {
             newUserInfo[event.target.name] = event.target.value;
             setUser(newUserInfo);
         }
+
     }
 
     const handleSubmit = (e) => {
@@ -75,7 +80,6 @@ const Login = () => {
                 })
             e.preventDefault();
         }
-
         e.preventDefault();
     }
 
@@ -89,8 +93,18 @@ const Login = () => {
     const handleResponse = (res, redirect) => {
         setUser(res);
         setLoggedInUser(res);
-        redirect ? history.replace(from) : history.replace();
+        let shouldRedirect;
+        if (res.error) {
+            shouldRedirect = false;
+            setError(res.error);
+            
+        }
+        else {
+            shouldRedirect = redirect;
+        }
+        shouldRedirect ? history.replace(from) : history.replace();
     }
+
 
     const gitSignIn = () => {
         handleGithubSignIn()
@@ -98,8 +112,8 @@ const Login = () => {
                 handleResponse(res, true)
             })
     }
-    // console.log(user);
-    // console.log(loggedInUser);
+    
+    
 
 
     let checked;
@@ -108,6 +122,7 @@ const Login = () => {
             <div className="header-container">
                 <Header></Header>
             </div>
+            <p></p>
             <div className="signup-form">
                 {
                     newUser ? <h3>Create an account</h3> : <h3>Login here</h3>
@@ -119,10 +134,10 @@ const Login = () => {
                     {
                         newUser && <input type="text" name="name" onBlur={handleBlurField} placeholder="Name" required />
                     }
-                    <input type="email" name="email" onBlur={handleBlurField} placeholder="Email" required />
+                    <input type="email" id="email" name="email" onBlur={handleBlurField} placeholder="Email" required />
                     <input type="password" name="password" onBlur={handleBlurField} placeholder="Password" required />
                     {
-                        newUser ? <input type="password" name="repeatPassword" onBlur={handleBlurField} placeholder="Confirm Password" required /> : <><input type="checkbox" name="checkbox" checked={checked} onClick={!checked} /><label htmlFor="checkbox"> Remeber me</label><br /> </>
+                        newUser ? <input type="password" id="repeatPassword" name="repeatPassword" onBlur={handleBlurField} placeholder="Confirm Password" required /> : <><input type="checkbox" name="checkbox" checked={checked} onClick={!checked} /><label htmlFor="checkbox"> Remeber me</label><br /> </>
                     }
                     <input type="submit" value={newUser ? 'Create an account' : 'Sign in'} />
                     <p>{newUser ? 'Have an account?' : 'No account?'}<a onClick={() => setNewUser(!newUser)} style={{ color: "green" }}> {newUser ? 'Sign in' : 'Create an account'}</a></p>
@@ -131,10 +146,10 @@ const Login = () => {
             <div className="other-signin">
                 <p>-------------------- Or --------------------</p>
                 <div>
-                    <button onClick={googleSignIn} className="signin-button"><i class="fa fa-google fa-2x"></i> Continue with Google</button>
+                    <button onClick={googleSignIn} className="signin-button"><i className="fa fa-google fa-2x"></i> Continue with Google</button>
                 </div>
                 <div>
-                    <button onClick={gitSignIn} className="signin-button"><i class="fa fa-github fa-2x"></i> Continue with Facebook</button>
+                    <button onClick={gitSignIn} className="signin-button"><i className="fa fa-github fa-2x"></i> Continue with Github</button>
                 </div>
 
             </div>

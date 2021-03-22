@@ -5,7 +5,7 @@
 		"capacity": 2,
         "price": 75,
         "icon":"fa fa-motorcycle",
-        "img": "https://ibb.co/HTgTbzg"
+        "img": "https://i.ibb.co/4RNRXTN/Bike.png"
 	},
     {   
         "id": 2,
@@ -13,7 +13,7 @@
 		"capacity": 4,
         "price": 350,
         "icon":"fa fa-car",
-        "img": "https://ibb.co/RBPcMd2"
+        "img": "https://i.ibb.co/BrjB7FL/Car.png"
 	},
     {   
         "id": 3,
@@ -21,7 +21,7 @@
 		"capacity": 35,
         "price": 50,
         "icon":"fa fa-bus",
-        "img": "https://ibb.co/y4pVf47"
+        "img": "https://i.ibb.co/z6FNn6D/Bus.png"
 	},
     {   
         "id": 4,
@@ -29,7 +29,7 @@
 		"capacity": 120,
         "price": 150,
         "icon":"fa fa-train",
-        "img": "https://ibb.co/RH4BWgb"
+        "img": "https://i.ibb.co/4NgYxFt/Metro.png"
 	}
     
 ]

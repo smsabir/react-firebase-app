@@ -2,7 +2,6 @@ import mapboxgl from 'mapbox-gl';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { UserContext, VehicleContext } from '../../App';
 import './OrderPage.css';
-import fakeData from '../../FakeData/data.json';
 import Header from '../Home/Header/Header';
 
 import Timeline from '@material-ui/lab/Timeline';
@@ -16,23 +15,23 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic2FiaXJiZCIsImEiOiJja21ob2F4OW4wOThhMm9wZmN5c
 
 const OrderPage = () => {
     const availableOption = ["OPTION1", "OPTION2", "OPTION3", "OPTION3"];
-    // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  
     const [selection, setSelection] = useContext(VehicleContext);
     const mapContainer = useRef();
-    const [lng, setLng] = useState(90.376015);
-    const [lat, setLat] = useState(23.746466);
-    const [zoom, setZoom] = useState(9);
+    const [lng, setLng] = useState(89.242778);
+    const [lat, setLat] = useState(25.757445);
+    const [zoom, setZoom] = useState(16);
 
 
     useEffect(() => {
         const map = new mapboxgl.Map({
             container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/streets-v11',
+            style: 'mapbox://styles/sabirbd/ckmkt2b8p6ed618np4zglgu3t',
             center: [lng, lat],
             zoom: zoom
         });
         return () => map.remove();
-    }, []);
+    }, [lat]);
 
 
 
@@ -70,7 +69,7 @@ const OrderPage = () => {
                             <br />
                             <input type="text" name="to" required />
                             <br />
-                            <input type="submit" />
+                            <input type="submit" value="Search" />
                         </form>
                     </div>
                     <div id="after-submit" style={show ? { display: "block" } : { display: "none" }}>
@@ -100,7 +99,7 @@ const OrderPage = () => {
                                 {
                                     availableOption.map(data =>
                                         <div className="rideCard">
-                                            <p><i className={selection.icon || "fa fa-motorcycle"}></i> &nbsp;{selection.name || 'bike'} &nbsp; &nbsp; <i class="fa fa-users"></i> {selection.capacity || 4} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${selection.price || 75}</p>
+                                            <p><i className={selection.icon || "fa fa-motorcycle"}></i> &nbsp;{selection.name || 'bike'} &nbsp; &nbsp; <i className="fa fa-users"></i> {selection.capacity || 4} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${selection.price || 75}</p>
                                         </div>
                                     )
                                 }
