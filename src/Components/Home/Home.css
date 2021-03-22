@@ -1,0 +1,58 @@
+.container{
+  margin-top: 25vh;
+  margin-bottom: 150px;
+  width: 100%;
+}
+.cards{
+  margin-left: 20%;
+  margin-right: auto;
+}
+
+.full-body{
+  background-image: url(../../images/big-city.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 1600px){
+
+  .full-body{
+    background-image: url(../../images/big-city.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-size: 130%;
+  }
+  
+
+}
+
+@media only screen and (max-width: 1250px){
+
+  .full-body{
+    background-image: url(../../images/big-city.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-size: 180%;
+    background-attachment: fixed;
+  }
+  
+
+}
+
+@media only screen and (max-width: 950px){
+
+  .full-body{
+    background-image: url(../../images/big-city.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-size: cover;
+  }
+  
+
+}

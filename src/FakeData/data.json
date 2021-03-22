@@ -1,0 +1,35 @@
+[
+	{   
+        "id": 1,
+		"name": "Bike",
+		"capacity": 2,
+        "price": 75,
+        "icon":"fa fa-motorcycle",
+        "img": "https://ibb.co/HTgTbzg"
+	},
+    {   
+        "id": 2,
+		"name": "Car",
+		"capacity": 4,
+        "price": 350,
+        "icon":"fa fa-car",
+        "img": "https://ibb.co/RBPcMd2"
+	},
+    {   
+        "id": 3,
+		"name": "Bus",
+		"capacity": 35,
+        "price": 50,
+        "icon":"fa fa-bus",
+        "img": "https://ibb.co/y4pVf47"
+	},
+    {   
+        "id": 4,
+		"name": "Metro",
+		"capacity": 120,
+        "price": 150,
+        "icon":"fa fa-train",
+        "img": "https://ibb.co/RH4BWgb"
+	}
+    
+]

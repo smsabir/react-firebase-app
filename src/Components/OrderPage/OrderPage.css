@@ -1,0 +1,96 @@
+.search-container{
+    margin-top: 100px;
+    margin-left: 7%;
+    margin-right: 5%;
+    margin-bottom: 150px;
+}
+
+@media only screen and (max-width: 800px) {
+    .map-container {
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: 20px;
+        width:450px;
+        height: auto;
+        float: left;
+        margin-left: 15%;
+        margin-right: 23%;
+    }
+    .search-container{
+        margin-top: 100px;
+        margin-left: 10%;
+        margin-right: 5%;
+    }
+
+   
+}
+
+.map-container {
+    margin-top: 20px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 20px;
+    width: 65%;
+    height: 55vh;
+    float: right;
+    margin-bottom: 150px;
+}
+.search-place{
+    width: 350px;
+    padding: 15px;
+    margin: 20px 20px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 10px;
+    float: left;
+}
+#search-form label, input, input[submit]{
+    padding: 5px;
+    width: 100%;
+
+}
+
+#search-form input[type=submit]{
+    margin: 10px 0px;
+    border-radius: 5px;
+    height: 55px;
+}
+
+#search-form input{
+    margin: 5px 0px;
+    border-radius: 3px;
+    border: 0px solid white;
+    height: 35px;
+}
+#after-submit .rideCard{
+    text-align: left;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 60px;
+}
+.rideCard p{
+    text-align: center;
+    padding: 20px;
+    margin-left: 7px;
+    padding-top: 20px;
+}
+
+.searchedLocation{
+    text-align:left;
+    padding: 5px;
+    background-color: tomato;
+    border-radius: 5px;
+    color: white;
+    padding-top: 15px;
+    padding-right: 60px;
+}
+
+.header-container{
+    border-bottom: 1px solid rgb(204, 201, 201);
+    margin-left: 10%;
+    margin-right: 10%;
+}
